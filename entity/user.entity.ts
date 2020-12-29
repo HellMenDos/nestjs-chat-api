@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn,OneToMany } from 'typeorm';
+import { Message } from './message.entity'
 
 @Entity()
 export class User {
@@ -16,4 +17,7 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @OneToMany(type => Message, Message => Message.user)
+  mess: Message[];
 }

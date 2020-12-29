@@ -1,0 +1,17 @@
+.main-section, .main-section > form {
+display: flex; 
+justify-content: center;
+align-items: center;
+margin: 30px;
+}
+input {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+textarea {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.users-container {
+	margin: 50px;
+}

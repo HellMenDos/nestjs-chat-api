@@ -1,4 +1,15 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "webpack": false,
+    "assets": [
+      "../views/*.hbs",
+      "../views/styles/*.css"
+    ],
+    "watchAssets": true
+  },
+  "generateOptions": {
+    "spec": false
+  }
 }

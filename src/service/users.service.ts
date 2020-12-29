@@ -14,8 +14,18 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
+
   createUser(user:User): Promise<User> {
     return this.usersRepository.save(user);
+  }
+
+  findUser(email:string, password?:string): Promise<User> {
+    if (password == null) {
+      return this.usersRepository.findOne({ where: { email: email } });
+    }else {
+      return this.usersRepository.findOne({ where: { email: email, password: password } });
+    }
+    
   }
 
   findOne(id: string): Promise<User> {

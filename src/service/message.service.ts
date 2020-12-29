@@ -11,11 +11,15 @@ export class MessageService {
   ) {}
 
   findAll(): Promise<Message[]> {
-    return this.MessageRepository.find();
+    return this.MessageRepository.find({ relations: ["user"] });
   }
 
   createMessage(message:Message): Promise<Message> {
     return this.MessageRepository.save(message);
+  }
+
+  async remove(id: string): Promise<void> {
+    await this.MessageRepository.delete(id);
   }
 
 }
